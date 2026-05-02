@@ -12,7 +12,7 @@ exports.createQuiz = async (req, res) => {
       questions,
     });
 
-    const quizLink = `http://192.168.0.7:5173/join/${quiz._id}`;
+    const quizLink = `${process.env.CLIENT_URL}/join/${quiz._id}`;
     const qrCode = await generateQR(quizLink);
 
     quiz.quizLink = quizLink;
